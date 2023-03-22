@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Game Mode")]
+    public bool twinStick = false;
+    public bool mouseAim = false;
+    public bool classic = false;
+
     [Header ("Player Movement")]
     [Range(0.1f, 30f)]
     public float playerSpeed = 10f;
@@ -11,15 +16,33 @@ public class PlayerController : MonoBehaviour
     public float ver;
     public float dep;
 
-    [Header ("Shooting")]
+    [Header("Shooting")]
+    public Transform gun;
     public GameObject bullet;
+    public float fireRate = 0.5f;
+    public bool canFire = true;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (twinStick)
+        {
+            gun.GetComponent<TwinStickAim>().enabled = true;
+            gun.GetComponent<GunScript>().enabled = false;
+        }
+        else if (classic)
+        {
+            gun.GetComponent<TwinStickAim>().enabled = false;
+            gun.GetComponent<GunScript>().enabled = false;
+        }
+        else if (mouseAim)
+        {
+            gun.GetComponent<TwinStickAim>().enabled = false;
+            gun.GetComponent<GunScript>().enabled = true;
+        }
+
     }
 
     // Update is called once per frame
@@ -38,17 +61,18 @@ public class PlayerController : MonoBehaviour
         /// This is for shooting
 
         //Input.GetKeyDown(KeyCode G)
-        if (Input.GetButtonDown("Fire1")) 
+        if (!twinStick && Input.GetButtonDown("Fire1") && canFire) 
         {
-            Shoot();
+            StartCoroutine("Shoot");
         }
     }
 
-    public void Shoot()
+    public IEnumerator Shoot()
     {
-        print("Shoot");
-        Instantiate(bullet, transform.position, transform.rotation);
-
+        Instantiate(bullet, gun.position, gun.rotation);
+        canFire = false;
+        yield return new WaitForSeconds(fireRate);
+        canFire = true;
 
     }
 }
