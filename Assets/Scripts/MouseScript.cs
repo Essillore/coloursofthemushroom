@@ -38,7 +38,7 @@ public class MouseScript : MonoBehaviour
 
         }
 
-        /// Debug.DrawRay(Camera.main.transform.position, Vector3.forward, Color.green, 1000f);
+       
     }
-
+    /// Debug.DrawRay(Camera.main.transform.position, Vector3.forward, Color.green, 1000f);
 }
