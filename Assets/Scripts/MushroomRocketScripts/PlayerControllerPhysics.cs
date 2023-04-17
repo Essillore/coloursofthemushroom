@@ -29,17 +29,28 @@ public class PlayerControllerPhysics : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // keybinds in Input manager for movement
         hor = Input.GetAxis("Horizontal");
         ver = Input.GetAxis("Vertical");
         dep = Input.GetAxis("Depth");
         roll = Input.GetAxis("Roll");
 
-        myRB.AddForce(Vector3.forward * myRB.mass * ver * playerSpeed);
-        myRB.AddForce(Vector3.up * myRB.mass * dep * playerSpeed);
+        //To solve
+        //Is (ForceMode.Force (( force * DT / mass) * mass) the same as
+        // ForceMode.Acceleration  ( force * DT)?
 
-        myRB.AddTorque(Vector3.up * myRB.mass * hor);
+        //Move player forward
+        myRB.AddRelativeForce(Vector3.forward * myRB.mass * ver * playerSpeed);
 
-        myRB.AddTorque(Vector3.forward * myRB.mass * roll);
+        // Move player up and down
+        myRB.AddRelativeForce(Vector3.up * myRB.mass * dep * playerSpeed);
+
+        //Turn player horizontally with A and D
+        //To solve: Slows down movement 
+        myRB.AddRelativeTorque(Vector3.up * myRB.mass * hor);
+
+        //Roll player around local Y-axis
+        myRB.AddRelativeTorque(Vector3.forward * myRB.mass * roll);
 
     /*    Vector3 tempVect = new Vector3(hor, dep, ver);
         tempVect = tempVect.normalized * playerSpeed * Time.deltaTime;
