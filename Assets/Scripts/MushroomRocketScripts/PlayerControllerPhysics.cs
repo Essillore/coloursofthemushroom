@@ -40,10 +40,14 @@ public class PlayerControllerPhysics : MonoBehaviour
         // ForceMode.Acceleration  ( force * DT)?
 
         //Move player forward
-        myRB.AddRelativeForce(Vector3.forward * myRB.mass * ver * playerSpeed);
+        myRB.AddRelativeForce(Vector3.forward * myRB.mass * ver * playerSpeed, ForceMode.Acceleration);
+
+        print(myRB.velocity);
 
         // Move player up and down
-        myRB.AddRelativeForce(Vector3.up * myRB.mass * dep * playerSpeed);
+        myRB.AddRelativeForce(Vector3.up * myRB.mass * dep * playerSpeed, ForceMode.Acceleration);
+
+        print(myRB.velocity);
 
         //Turn player horizontally with A and D
         //To solve: Slows down movement 
