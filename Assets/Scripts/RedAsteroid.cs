@@ -24,7 +24,7 @@ public class RedAsteroid : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-       
+
     }
 
     void FixedUpdate()
@@ -51,19 +51,5 @@ public class RedAsteroid : MonoBehaviour
         //rb.AddForce(forceVector);
     }
 
-   /* void AsteroidHealth()
-    {
-        int asteroidMaxHealth = 100;
-        int asteroidCurrentHealth = asteroidMaxHealth;
-
-        asteroidCurrentHealth = asteroidCurrentHealth - TakeDamage();
-
-    }
-
-    int TakeDamage()
-    {
-        
-
-    }
-   */
+   
 }

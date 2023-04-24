@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8061506410392739533}
   - component: {fileID: 8061506410392739530}
   - component: {fileID: 8061506410392739531}
+  - component: {fileID: 7739056122563002772}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Untagged
@@ -79,9 +80,22 @@ MonoBehaviour:
   centerOfOrbit: {fileID: 0}
   orbitSpeed: 5
   forceToAdd: 0
-  inertia: 0.4
-  alpha: 2
   radius: 5
+--- !u!114 &7739056122563002772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8061506410392739528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5156b77c0025e05468418628c2d017dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroidMaxHealth: 100
+  asteroidCurrentHealth: 0
+  prettyLight: {fileID: 8201202650514258243, guid: 68b3c6e3d25922a469c3d313383c7dc3, type: 3}
 --- !u!1001 &8061506410710328276
 PrefabInstance:
   m_ObjectHideFlags: 0

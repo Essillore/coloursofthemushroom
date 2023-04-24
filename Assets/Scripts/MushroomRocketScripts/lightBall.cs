@@ -18,10 +18,12 @@ public class lightBall : MonoBehaviour
     
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<RedAsteroid>() | collision.gameObject.GetComponent<AsteroidMovement>()) 
+        RedAsteroid asteroidClash = collision.gameObject.GetComponent<RedAsteroid>();
+        if (asteroidClash) 
         {
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+            AsteroidHealth asteroidHealth = collision.gameObject.GetComponent<AsteroidHealth>();
+            asteroidHealth.TakeDamage(100);
+            
         }
        
     }
