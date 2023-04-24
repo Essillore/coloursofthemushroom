@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class lightBall : MonoBehaviour
 {
+    public GameObject explosionEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class lightBall : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<RedAsteroid>() | collision.gameObject.GetComponent<AsteroidMovement>()) 
         {
+            Instantiate(explosionEffect, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }

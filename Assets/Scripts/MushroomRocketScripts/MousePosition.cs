@@ -9,6 +9,8 @@ public class MousePosition : MonoBehaviour
     [SerializeField] private LayerMask mouseColliderLayerMask = new LayerMask();
     [SerializeField] private Transform debugTransform;
 
+    public GameObject explosionEffect;
+
     private void Awake()
     {
         Instance = this;
@@ -21,12 +23,20 @@ public class MousePosition : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit raycastHit, 8000f, mouseColliderLayerMask))
         {
             debugTransform.position = raycastHit.point;
+            if(Input.GetButtonDown("Fire1"))
+            {
+                if (raycastHit.transform.GetComponent<RedAsteroid>() | raycastHit.transform.GetComponent<AsteroidMovement>())
+                {
+                    Instantiate(explosionEffect, raycastHit.transform.position, raycastHit.transform.rotation);
+                    Destroy(raycastHit.transform.gameObject);
+                }
+            }
         }
     }
     public static Vector3 GetMouseWorldPosition() => Instance.GetMouseWorldPosition_Instance();
