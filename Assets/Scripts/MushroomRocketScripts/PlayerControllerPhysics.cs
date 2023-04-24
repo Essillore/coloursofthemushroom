@@ -7,6 +7,7 @@ public class PlayerControllerPhysics : MonoBehaviour
     [Header("Player Movement")]
     [Range(0.1f, 30f)]
     public float playerSpeed = 10f;
+    public float turnSpeed = 5f;
     public float hor;
     public float ver;
     public float dep;
@@ -40,18 +41,21 @@ public class PlayerControllerPhysics : MonoBehaviour
         // ForceMode.Acceleration  ( force * DT)?
 
         //Move player forward
-        myRB.AddRelativeForce(Vector3.forward * myRB.mass * ver * playerSpeed, ForceMode.Acceleration);
+        myRB.AddRelativeForce(Vector3.forward * myRB.mass * ver * playerSpeed, ForceMode.Force);
 
-        print(myRB.velocity);
+        print(myRB.velocity.magnitude.ToString());
 
         // Move player up and down
-        myRB.AddRelativeForce(Vector3.up * myRB.mass * dep * playerSpeed, ForceMode.Acceleration);
+        // myRB.AddRelativeForce(Vector3.up * myRB.mass * dep * playerSpeed, ForceMode.Acceleration);
 
-        print(myRB.velocity);
+        // print(myRB.velocity);
+
+        //Turn player up and down (pitch)
+        myRB.AddRelativeTorque(Vector3.right *(-1)* myRB.mass * dep);
 
         //Turn player horizontally with A and D
         //To solve: Slows down movement 
-        myRB.AddRelativeTorque(Vector3.up * myRB.mass * hor);
+        myRB.AddRelativeTorque(Vector3.up * myRB.mass * hor * turnSpeed);
 
         //Roll player around local Y-axis
         myRB.AddRelativeTorque(Vector3.forward * myRB.mass * roll);
