@@ -26,9 +26,11 @@ public class CannonShooting : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
+            Vector3 aimDir = (MousePosition.GetMouseWorldPosition() - transform.position).normalized;
             nextFire = Time.time + fireRate;
             GameObject projectile = Instantiate(lightBall, transform.position, transform.rotation);
-            projectile.GetComponent<Rigidbody>().AddForce(transform.forward * lightBallSpeed);
+            // Quaternion.LookRotation(aimDir, Vector3.up)
+            projectile.GetComponent<Rigidbody>().AddForce(aimDir * lightBallSpeed);
             print(transform.forward * lightBallSpeed);
         }
     }

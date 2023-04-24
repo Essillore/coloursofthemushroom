@@ -50,4 +50,20 @@ public class RedAsteroid : MonoBehaviour
         //Vector3 forceVector = new Vector3(x, 0, z) * forceToAdd;
         //rb.AddForce(forceVector);
     }
+
+   /* void AsteroidHealth()
+    {
+        int asteroidMaxHealth = 100;
+        int asteroidCurrentHealth = asteroidMaxHealth;
+
+        asteroidCurrentHealth = asteroidCurrentHealth - TakeDamage();
+
+    }
+
+    int TakeDamage()
+    {
+        
+
+    }
+   */
 }
