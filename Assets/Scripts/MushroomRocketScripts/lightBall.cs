@@ -20,12 +20,36 @@ public class lightBall : MonoBehaviour
     
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<RedAsteroid>() | collision.gameObject.GetComponent<AsteroidMovement>()) 
+        // Asteroids that have rigid body
+        RedAsteroid asteroidClash = collision.gameObject.GetComponent<RedAsteroid>();
+        AsteroidMovement asteroidClashBlack = collision.gameObject.GetComponent<AsteroidMovement>();
+        
+        //Asteroid health
+        AsteroidHealth asteroidHealth = collision.gameObject.GetComponent<AsteroidHealth>();
+
+        //Insight piece
+        InsightMovement insightPiece = collision.gameObject.GetComponent<InsightMovement>();
+
+        //When touch asteroid, asteroid takes 100 dmg -> destroys -> explodes -> spawns light
+        if (asteroidClash | asteroidClashBlack)
+        {   
+            asteroidHealth.TakeDamage(100);
+        }
+        else if (insightPiece)
         {
+            insightPiece.Teleport();
+        }
+
+        /*    if (collision.gameObject.GetComponent<RedAsteroid>() | collision.gameObject.GetComponent<AsteroidMovement>()) 
+        {
+            
             Instantiate(explosionEffect, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
-       
+       */
     }
 }
+
+
+   

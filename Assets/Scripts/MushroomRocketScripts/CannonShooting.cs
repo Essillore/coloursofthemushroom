@@ -10,6 +10,8 @@ public class CannonShooting : MonoBehaviour
     public float fireRate = 0.5f;
     private float nextFire = 0.0f;
 
+
+
 //     public Rigidbody myRB;
 
 
@@ -33,6 +35,8 @@ public class CannonShooting : MonoBehaviour
             projectile.GetComponent<Rigidbody>().AddForce(aimDir * lightBallSpeed);
             print(transform.forward * lightBallSpeed);
         }
+
+
     }
 
 }

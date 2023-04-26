@@ -8,6 +8,7 @@ public class AsteroidHealth : MonoBehaviour
     public int asteroidCurrentHealth;
 
     public GameObject prettyLight;
+    public GameObject explosionEffect;
 
 
     // Start is called before the first frame update
@@ -29,6 +30,7 @@ public class AsteroidHealth : MonoBehaviour
         if (asteroidCurrentHealth <= 0)
         {
             GameObject lightSphere = Instantiate(prettyLight, transform.position, transform.rotation);
+            Instantiate(explosionEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
 

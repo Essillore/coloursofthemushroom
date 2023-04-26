@@ -43,7 +43,7 @@ public class PlayerControllerPhysics : MonoBehaviour
         //Move player forward
         myRB.AddRelativeForce(Vector3.forward * myRB.mass * ver * playerSpeed, ForceMode.Force);
 
-        print(myRB.velocity.magnitude.ToString());
+        // print(myRB.velocity.magnitude.ToString());
 
         // Move player up and down
         // myRB.AddRelativeForce(Vector3.up * myRB.mass * dep * playerSpeed, ForceMode.Acceleration);

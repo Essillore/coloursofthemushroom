@@ -33,11 +33,19 @@ public class MousePosition : MonoBehaviour
             {
                 if (raycastHit.transform.GetComponent<RedAsteroid>() | raycastHit.transform.GetComponent<AsteroidMovement>())
                 {
-                    Instantiate(explosionEffect, raycastHit.transform.position, raycastHit.transform.rotation);
-                    Destroy(raycastHit.transform.gameObject);
+                   // Instantiate(explosionEffect, raycastHit.transform.position, raycastHit.transform.rotation);
+                   // Destroy(raycastHit.transform.gameObject);
+                    AsteroidHealth asteroidHealth = raycastHit.transform.GetComponent<AsteroidHealth>();
+                    asteroidHealth.TakeDamage(100);
+
+                } else if (raycastHit.transform.GetComponent<InsightMovement>())
+                {
+                    InsightMovement insightPiece = raycastHit.transform.GetComponent<InsightMovement>();
+                    insightPiece.Teleport();
                 }
             }
         }
+
     }
     public static Vector3 GetMouseWorldPosition() => Instance.GetMouseWorldPosition_Instance();
 

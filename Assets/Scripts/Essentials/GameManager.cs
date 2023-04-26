@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    public int score = 0;
+    public int asteroidsDestroyed = 0;
+    public int lightsDestroyed = 0;
+    public int insightCollected = 0;
 
     public static GameManager gameManager;
 
