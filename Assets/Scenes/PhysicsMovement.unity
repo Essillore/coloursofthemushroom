@@ -262,27 +262,31 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 9963b654dd963494285dd42d781b16e4, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: -9222118525114549098, guid: 9963b654dd963494285dd42d781b16e4, type: 3}
+      objectReference: {fileID: 2100000, guid: 5c2fec99033f6c24fa1fdecbc649c931, type: 2}
     - target: {fileID: -7511558181221131132, guid: 9963b654dd963494285dd42d781b16e4, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: -9222118525114549098, guid: 9963b654dd963494285dd42d781b16e4, type: 3}
+      objectReference: {fileID: 2100000, guid: 5c2fec99033f6c24fa1fdecbc649c931, type: 2}
     - target: {fileID: -7511558181221131132, guid: 9963b654dd963494285dd42d781b16e4, type: 3}
       propertyPath: m_Materials.Array.data[3]
       value: 
-      objectReference: {fileID: -9222118525114549098, guid: 9963b654dd963494285dd42d781b16e4, type: 3}
+      objectReference: {fileID: 2100000, guid: 5c2fec99033f6c24fa1fdecbc649c931, type: 2}
     - target: {fileID: -7511558181221131132, guid: 9963b654dd963494285dd42d781b16e4, type: 3}
       propertyPath: m_Materials.Array.data[4]
       value: 
-      objectReference: {fileID: -9222118525114549098, guid: 9963b654dd963494285dd42d781b16e4, type: 3}
+      objectReference: {fileID: 2100000, guid: 5c2fec99033f6c24fa1fdecbc649c931, type: 2}
     - target: {fileID: -7511558181221131132, guid: 9963b654dd963494285dd42d781b16e4, type: 3}
       propertyPath: m_Materials.Array.data[5]
       value: 
-      objectReference: {fileID: -9222118525114549098, guid: 9963b654dd963494285dd42d781b16e4, type: 3}
+      objectReference: {fileID: 2100000, guid: 5c2fec99033f6c24fa1fdecbc649c931, type: 2}
     - target: {fileID: -7511558181221131132, guid: 9963b654dd963494285dd42d781b16e4, type: 3}
       propertyPath: m_Materials.Array.data[6]
       value: 
-      objectReference: {fileID: -9222118525114549098, guid: 9963b654dd963494285dd42d781b16e4, type: 3}
+      objectReference: {fileID: 2100000, guid: 5c2fec99033f6c24fa1fdecbc649c931, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 9963b654dd963494285dd42d781b16e4, type: 3}
+      propertyPath: m_Materials.Array.data[7]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c2fec99033f6c24fa1fdecbc649c931, type: 2}
     - target: {fileID: 919132149155446097, guid: 9963b654dd963494285dd42d781b16e4, type: 3}
       propertyPath: m_Name
       value: mushroomAprRain
@@ -432,6 +436,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88843b6f4a468db46bc5ad532443be93, type: 3}
+--- !u!1 &469127545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9963b654dd963494285dd42d781b16e4, type: 3}
+  m_PrefabInstance: {fileID: 73402955}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &469127549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469127545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4498152f394c7ae4b8884ad820079124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coloursCollected: {fileID: 2100000, guid: 132d28aa486b404428f1288b3e631596, type: 2}
+  insightSpawner: {fileID: 1257133217}
+  m_Materials: []
 --- !u!1 &737877461
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,7 +878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5109ce2875e3a1845a45a872618f36ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  insightPiece3: {fileID: 0}
+  mushroomCollectingColours: {fileID: 0}
   insightPuzzles:
   - {fileID: 1453783541916887295, guid: 8f60916d5ba75b84eb06561cb82c8391, type: 3}
   - {fileID: 1453783541916887295, guid: 8f60916d5ba75b84eb06561cb82c8391, type: 3}
@@ -864,7 +888,7 @@ MonoBehaviour:
   - {fileID: 1453783541916887295, guid: 8f60916d5ba75b84eb06561cb82c8391, type: 3}
   - {fileID: 1453783541916887295, guid: 8f60916d5ba75b84eb06561cb82c8391, type: 3}
   - {fileID: 1453783541916887295, guid: 8f60916d5ba75b84eb06561cb82c8391, type: 3}
-  pieces: 00000000000000
+  pieces: 0000000000000000
 --- !u!4 &1257133219
 Transform:
   m_ObjectHideFlags: 0

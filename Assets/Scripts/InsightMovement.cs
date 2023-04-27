@@ -8,22 +8,34 @@ public class InsightMovement : MonoBehaviour
     public float inertia = 0.4f;
     public float alpha = 2f;
     public int insightNumber;
+    public GameObject insightSpawner;
+    Vector3 torque;
+    public bool freeze = false;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        float torqueMagnitude = inertia * alpha;
-        float torqueX = torqueMagnitude;
-        float torqueY = torqueMagnitude;
-        float torqueZ = torqueMagnitude;
-        Vector3 torque = new Vector3(torqueX, torqueY, torqueZ);
-        rb.AddTorque(torque);
+        if (!freeze)
+        {
+            float torqueMagnitude = inertia * alpha;
+            float torqueX = torqueMagnitude;
+            float torqueY = torqueMagnitude;
+            float torqueZ = torqueMagnitude;
+            torque = new Vector3(torqueX, torqueY, torqueZ);
+            rb.AddTorque(torque);
+        }
+        else if (freeze)
+        {
+
+        }
+              
     }
 
     public void Teleport()
@@ -34,12 +46,12 @@ public class InsightMovement : MonoBehaviour
 
     public void Collect()
     {
+        InsightSpawner insightTracker = insightSpawner.GetComponent<InsightSpawner>();
+       // insightTracker.pieces[insightNumber] = true;
+
+        insightTracker.InsightCollected(insightNumber);
+
         Destroy(gameObject);
-        // InsightSpawner insightTracker = GetComponent<InsightSpawner>();
-
-        // insightTracker.pieces[insightNumber] = true;
-
-
 
         // insightTracker().pieces(insightNumber) = true;
         //play animation

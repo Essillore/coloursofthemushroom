@@ -5,7 +5,7 @@ using UnityEngine;
 public class CannonShooting : MonoBehaviour
 {
     public GameObject lightBall;
-    public float lightBallSpeed = 1000f;
+    public float lightBallSpeed = 60000f;
 
     public float fireRate = 0.5f;
     private float nextFire = 0.0f;
@@ -33,7 +33,7 @@ public class CannonShooting : MonoBehaviour
             GameObject projectile = Instantiate(lightBall, transform.position, transform.rotation);
             // Quaternion.LookRotation(aimDir, Vector3.up)
             projectile.GetComponent<Rigidbody>().AddForce(aimDir * lightBallSpeed);
-            print(transform.forward * lightBallSpeed);
+           // print(transform.forward * lightBallSpeed);
         }
 
 

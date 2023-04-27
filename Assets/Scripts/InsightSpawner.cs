@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class InsightSpawner : MonoBehaviour
 {
-    public GameObject insightPiece3;
+    public GameObject mushroomCollectingColours;
 
-        public GameObject[] insightPuzzles;
+    public GameObject[] insightPuzzles;
     public bool[] pieces;
 
     // Start is called before the first frame update
@@ -14,11 +14,7 @@ public class InsightSpawner : MonoBehaviour
     {
         Vector3 position = new Vector3(Random.Range(-200f, 200f), Random.Range(-200f, 200f), Random.Range(-200f, 200f));
 
-       /*  foreach (bool value in pieces)
-        {
-            print(value);
-         }
-        */
+      
         pieces = new bool[8];
 
             for (int i = 0; i < 8; i++)
@@ -26,11 +22,23 @@ public class InsightSpawner : MonoBehaviour
             
             GameObject insightPiece = Instantiate(insightPuzzles[i], position, transform.rotation);
 
+            insightPiece.GetComponent<InsightMovement>().insightSpawner = gameObject;
             insightPiece.GetComponent<InsightMovement>().insightNumber = i;
                 pieces[i] = false;
         }
 
-       
+
+    }
+
+    //   if(insightSpawner.GetComponent<InsightSpawner>().pieces[i] == true)
+     //   { 
+             
+      //  }
+
+    public void InsightCollected(int numberOfPiece)
+    {
+        pieces[numberOfPiece] = true;
+        mushroomCollectingColours.GetComponent<ColoursCollected>().WhichInsightWasCollected(numberOfPiece);
     }
 
     // Update is called once per frame

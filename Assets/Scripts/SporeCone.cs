@@ -41,7 +41,8 @@ public class SporeCone : MonoBehaviour
         if (insightPiece)
         {
            channelStart = Time.time;
-            print(Time.time);
+            insightPiece.freeze = true;
+         //   print(Time.time);
             StartCoroutine(ChannelDuration());
         }
     }
@@ -49,10 +50,17 @@ public class SporeCone : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         InsightMovement insightPiece = other.gameObject.GetComponent<InsightMovement>();
-        if (channelReady == true)
+        if (channelReady == true && insightPiece != null)
         {
             insightPiece.Collect();
+            Stopping();
         }
+    }
+
+    private void Stopping()
+    {
+        StopCoroutine(ChannelDuration());
+        channelReady = false;
     }
 
     private void OnTriggerExit(Collider other)
@@ -61,6 +69,7 @@ public class SporeCone : MonoBehaviour
         if (insightPiece)
         {
             StopCoroutine(ChannelDuration());
+            insightPiece.freeze = false;
             channelReady = false;
             print("channel stopped");
         }
@@ -70,7 +79,7 @@ public class SporeCone : MonoBehaviour
     {
         print("channel started");
         yield return new WaitForSeconds(3);
-        print(Time.time);
+     //   print(Time.time);
         
         print("Channeled");
         channelReady = true;
