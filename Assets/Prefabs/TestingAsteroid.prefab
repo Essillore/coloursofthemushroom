@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidMaxHealth: 100
   asteroidCurrentHealth: 0
-  prettyLight: {fileID: 8201202650514258243, guid: 68b3c6e3d25922a469c3d313383c7dc3, type: 3}
+  prettyLight: {fileID: 4289204767840059638, guid: edbd16b9badfe434c8d4f4d424b0e683, type: 3}
   explosionEffect: {fileID: 1318318595812237431, guid: 8c765fca6e2c46d4c8b6c04f2d787404, type: 3}
 --- !u!1001 &5248046258588173933
 PrefabInstance:
