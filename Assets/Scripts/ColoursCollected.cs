@@ -35,6 +35,7 @@ public class ColoursCollected : MonoBehaviour
     {
        
     }
+
     public void WhichInsightWasCollected(int i)
     {
         materials[i] = coloursCollected;
