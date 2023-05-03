@@ -13,6 +13,9 @@ public class RedAsteroid : MonoBehaviour
     public float alpha = 2f;
     public float radius = 1;
 
+    //Asteroid health
+    private AsteroidHealth asteroidHealth;
+
     // F = m* v^2 / r
     //where forceForce is the force, m is the mass of the object, v is the speed of the object, and r is the radius of the circular path.
     //Inertia is the moment of inertia of the object and
@@ -23,6 +26,7 @@ public class RedAsteroid : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        asteroidHealth = GetComponent<AsteroidHealth>();
 
 
     }
@@ -51,5 +55,27 @@ public class RedAsteroid : MonoBehaviour
         //rb.AddForce(forceVector);
     }
 
-   
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Player that has rigid body
+        PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+
+
+
+        //When touch player, player takes 20dmg, in 1s asteroid takes 100 dmg -> destroys -> explodes -> spawns light
+        if (playerHealth)
+        {
+            playerHealth.TakeDamage(20);
+            print("Asteroid has collided with player");
+            StartCoroutine(DelayOnDestroy());
+        }
+
+    }
+        private IEnumerator DelayOnDestroy()
+        {
+            yield return new WaitForSeconds(0.5f);
+            
+            asteroidHealth.TakeDamage(100);
+
+        }
 }
