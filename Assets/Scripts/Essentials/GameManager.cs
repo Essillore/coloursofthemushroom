@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager gameManager;
 
     public int asteroidsDestroyed = 0;
     public int lightsDestroyed = 0;
     public int insightCollected = 0;
 
-    public static GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +23,14 @@ public class GameManager : MonoBehaviour
         else if (gameManager != this)
         {
             Destroy(gameObject);
-        }
-
-        
+        }        
     }
+
+    public void AsteroidDestroyed()
+    {
+        asteroidsDestroyed += 1;
+    }
+
 
     // Update is called once per frame
     void Update()

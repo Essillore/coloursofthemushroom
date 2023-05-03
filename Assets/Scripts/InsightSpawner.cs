@@ -15,9 +15,9 @@ public class InsightSpawner : MonoBehaviour
         Vector3 position = new Vector3(Random.Range(-200f, 200f), Random.Range(-200f, 200f), Random.Range(-200f, 200f));
 
       
-        pieces = new bool[8];
+        pieces = new bool[7];
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 7; i++)
             {
             
             GameObject insightPiece = Instantiate(insightPuzzles[i], position, transform.rotation);
