@@ -45,6 +45,13 @@ public class SporeCone : MonoBehaviour
          //   print(Time.time);
             StartCoroutine(ChannelDuration());
         }
+
+        Collectable tutorialSphere = other.gameObject.GetComponent<Collectable>();
+        if (tutorialSphere)
+        {
+            channelStart = Time.time;
+            StartCoroutine(ChannelDuration());
+            }
     }
 
     private void OnTriggerStay(Collider other)
@@ -55,6 +62,14 @@ public class SporeCone : MonoBehaviour
             insightPiece.Collect();
             Stopping();
         }
+
+        Collectable tutorialSphere = other.gameObject.GetComponent<Collectable>();
+        if (channelReady==true && tutorialSphere != null)
+        {
+            tutorialSphere.Collect();
+            Stopping();
+        }
+
     }
 
     private void Stopping()
@@ -71,20 +86,20 @@ public class SporeCone : MonoBehaviour
             StopCoroutine(ChannelDuration());
             insightPiece.freeze = false;
             channelReady = false;
-            print("channel stopped");
         }
+        Collectable tutorialSphere = other.gameObject.GetComponent<Collectable>();
+        if (tutorialSphere)
+        {
+            StopCoroutine(ChannelDuration());
+            channelReady = false;
+        }
+
     }
 
     private IEnumerator ChannelDuration()
     {
-        print("channel started");
-        yield return new WaitForSeconds(3);
-     //   print(Time.time);
-        
-        print("Channeled");
-        channelReady = true;
-        
-        
+        yield return new WaitForSeconds(3);   
+        channelReady = true;       
     }
 
 

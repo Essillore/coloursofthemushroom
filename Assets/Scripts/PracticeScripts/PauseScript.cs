@@ -7,11 +7,15 @@ public class PauseScript : MonoBehaviour
     public bool paused = false;
 
     public GameObject pauseMenu;
+    public GameObject deadMenu;
+    public PlayerHealth playerHealth;
+
 
     // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
+        deadMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -45,4 +49,18 @@ public class PauseScript : MonoBehaviour
             Time.timeScale = 1f;
         }
     }
+
+    public void PlayerDied()
+    {
+        paused = true;
+        deadMenu.SetActive(true);
+    }
+
+    public void BorrowedTime()
+    {
+        paused = false;
+        playerHealth.TakeDamage(-100);
+        deadMenu.SetActive(false);
+    }
+
 }

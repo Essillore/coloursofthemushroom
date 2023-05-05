@@ -10,6 +10,9 @@ public class PlayerHealth : MonoBehaviour
 
 
     public FootVisualiseHealth healthShower;
+    public LevelManager levelManager;
+
+    public PauseScript pauseScript;
 
 
     // Start is called before the first frame update
@@ -27,10 +30,17 @@ public class PlayerHealth : MonoBehaviour
             print("Lost 20 hp");
         }
 
+
     }
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
         healthShower.CheckIfFootNeedsChanged(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            pauseScript.PlayerDied();
+        }
+
     }
 }

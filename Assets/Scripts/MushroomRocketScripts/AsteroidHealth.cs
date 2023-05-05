@@ -39,7 +39,7 @@ public class AsteroidHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         asteroidCurrentHealth -= amount;
-        print("Took " + amount + "dmg at " + Time.time);
+        //print("Took " + amount + "dmg at " + Time.time);
         Health();
 
     }

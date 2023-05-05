@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public int asteroidsDestroyed = 0;
     public int lightsDestroyed = 0;
-    public int insightCollected = 0;
+    public int insightsCollected = 0;
 
 
     // Start is called before the first frame update
@@ -24,6 +24,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }        
+    }
+
+    public void InsightsCollected(int insights)
+    {
+        insightsCollected = insights;
     }
 
     public void AsteroidDestroyed()

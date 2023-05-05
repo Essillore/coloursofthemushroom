@@ -8,9 +8,12 @@ public class AsteroidMovement : MonoBehaviour
     public float orbitSpeed = 10f;
 
 
-    public float forceToAdd;
-   // public float inertia = 0.4f;
-   // public float alpha = 2f;
+    public float forceToAdd = 1f;
+    public float movementDirectionX = 3f;
+    public float movementDirectionY = 3f;
+    public float movementDirectionZ = 3f;
+    // public float inertia = 0.4f;
+    // public float alpha = 2f;
     public float radius = 1;
 
     // F = m* v^2 / r
@@ -29,7 +32,7 @@ public class AsteroidMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        forceToAdd = rb.mass * (orbitSpeed * orbitSpeed) / radius;
+        /* forceToAdd = rb.mass * (orbitSpeed * orbitSpeed) / radius;
 
         /* float torqueMagnitude = i * alpha;
          float torqueX = 0;
@@ -39,9 +42,20 @@ public class AsteroidMovement : MonoBehaviour
          rb.AddTorque(torque);
         */
 
-        float x = Mathf.Cos(Time.time);
+        /*float x = Mathf.Cos(Time.time);
         float z = Mathf.Sin(Time.time);
         Vector3 forceVector = new Vector3(x, 0, z) * forceToAdd;
         rb.AddForce(forceVector);
+
+        */
+
+        Vector3 directionVector = new Vector3(movementDirectionX, movementDirectionY, movementDirectionZ) * forceToAdd;
+        rb.AddForce(directionVector);
     }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        forceToAdd = -forceToAdd;
+    }
+
 }

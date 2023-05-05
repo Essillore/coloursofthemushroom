@@ -82,7 +82,7 @@ MonoBehaviour:
   forceToAdd: 0
   inertia: 0.4
   alpha: 2
-  radius: 1
+  radius: 50
 --- !u!114 &1346809416076704188
 MonoBehaviour:
   m_ObjectHideFlags: 0

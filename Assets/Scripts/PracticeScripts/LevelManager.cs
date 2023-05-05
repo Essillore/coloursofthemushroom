@@ -7,14 +7,14 @@ public class LevelManager : MonoBehaviour
 {
 
     public PauseScript pause;
-    public Animator fadeScreen;
+   // public Animator fadeScreen;
     public float transitionTime = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        pause = GetComponent<PauseScript>();
-        fadeScreen = GameObject.Find("FadeScreen").GetComponent<Animator>();
+      //  pause = GetComponent<PauseScript>();
+      //  fadeScreen = GameObject.Find("FadeScreen").GetComponent<Animator>();
 
     }
 
@@ -27,7 +27,7 @@ public class LevelManager : MonoBehaviour
     public void ChangeLevel(int levelNumber)
     {
         pause.paused = false;
-        fadeScreen.SetTrigger("ChangeLevel");
+       // fadeScreen.SetTrigger("ChangeLevel");
         StartCoroutine(NewLevel(levelNumber));
     }
 

@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/GameMenuScene.unity
     guid: f68e04ef5d0aa2142a6b63ac9c1acefe
   - enabled: 1
-    path: Assets/Scenes/MouseMovement.unity
-    guid: e4304006e4a03e744be7056aa7256a12
+    path: Assets/Scenes/TutorialMovement.unity
+    guid: 19da45d3043986249806a86c70b2c4ee
+  - enabled: 1
+    path: Assets/Scenes/PhysicsMovement.unity
+    guid: b270ecef79b503745b0fd90160722190
+  - enabled: 1
+    path: Assets/Scenes/LoseScreen.unity
+    guid: 938011a4ff554b147a130021a4b5e43c
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: 9635d3cbcfa2a05488037eac06ef24b3
   m_configObjects: {}

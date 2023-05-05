@@ -132,7 +132,7 @@ MonoBehaviour:
   myPositionAtStart: {x: 0, y: 0, z: 0}
   directionVector: {x: 0, y: 0, z: 0}
   targetDirection: {x: 0, y: 0, z: 0}
-  speed: 15
+  speed: 11
 --- !u!1 &7584335638755729501
 GameObject:
   m_ObjectHideFlags: 0
