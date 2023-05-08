@@ -40,6 +40,7 @@ public class PlayerControllerPhysics : MonoBehaviour
         //Is (ForceMode.Force (( force * DT / mass) * mass) the same as
         // ForceMode.Acceleration  ( force * DT)?
 
+
         //Move player forward
         myRB.AddRelativeForce(Vector3.forward * myRB.mass * ver * playerSpeed, ForceMode.Force);
 

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameAnalyticsSDK;
+using GameAnalyticsSDK.Events;
 
 public class InsightSpawner : MonoBehaviour
 {
@@ -11,10 +13,11 @@ public class InsightSpawner : MonoBehaviour
     public int insightCounter;
 
     public LevelManager levelManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        int howManyInsightYouCollectedBeforeYouDied;
+      //  int howManyInsightYouCollectedBeforeYouDied;
       
         pieces = new bool[7];
 
@@ -58,6 +61,9 @@ public class InsightSpawner : MonoBehaviour
     {
         if (insightCounter==7)
         {
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "SphereWorld", GameManager.gameManager.HowManyAsteroidsDestroyed());
+            GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "AsteroidsDestroyed", GameManager.gameManager.HowManyAsteroidsDestroyed(), "Asteroid", "asteroidsDestroyed");
+
             levelManager.ChangeLevel(4);
         }
     }

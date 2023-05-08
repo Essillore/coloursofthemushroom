@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameAnalyticsSDK;
+using GameAnalyticsSDK.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -39,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "SphereWorld", GameManager.gameManager.HowManyAsteroidsDestroyed());
             pauseScript.PlayerDied();
         }
 
