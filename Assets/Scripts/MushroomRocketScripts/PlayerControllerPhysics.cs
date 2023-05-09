@@ -52,7 +52,7 @@ public class PlayerControllerPhysics : MonoBehaviour
         // print(myRB.velocity);
 
         //Turn player up and down (pitch)
-        myRB.AddRelativeTorque(Vector3.right *(-1)* myRB.mass * dep);
+        myRB.AddRelativeTorque(Vector3.right *(-1)* myRB.mass * dep * turnSpeed);
 
         //Turn player horizontally with A and D
         //To solve: Slows down movement 
