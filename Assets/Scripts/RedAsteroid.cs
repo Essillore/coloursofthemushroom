@@ -5,6 +5,7 @@ using UnityEngine;
 public class RedAsteroid : MonoBehaviour
 {
     public Vector3 orbitCenter;
+    public GameObject target;
     public float orbitSpeed = 10f;
 
 
@@ -28,11 +29,16 @@ public class RedAsteroid : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         asteroidHealth = GetComponent<AsteroidHealth>();
 
-
+        
     }
 
     void FixedUpdate()
     {
+        if (target != null)
+        {
+            orbitCenter = target.transform.position;
+        }
+
         float orbitCircumference = 2 * Mathf.PI * radius;
         float orbitTime = orbitCircumference / orbitSpeed;
         float orbitAcceleration = (2 * Mathf.PI) / orbitTime;
