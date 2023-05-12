@@ -30,7 +30,7 @@ public class AsteroidToInsightSpawner : MonoBehaviour
         
     }
 
-    public void SpawnAsteroidsToInsight()
+    public void SpawnAsteroidsToInsight(int radiusMultiplier)
     {
         insightPieces = GameObject.FindGameObjectsWithTag("InsightPiece");
         Debug.Log("Found " + insightPieces.Length + " InsightPieces.");
@@ -48,7 +48,7 @@ public class AsteroidToInsightSpawner : MonoBehaviour
         for (int i = 0; i < asteroidCount; i++)
         {
             float orbitSpeedRange = Random.Range(orbitSpeedMin, orbitSpeedMax);
-            float radiusRange = Random.Range(radiusMin, radiusMax);
+            float radiusRange = Random.Range(radiusMin, radiusMax)* radiusMultiplier;
 
             int xyz = 0;
             for (xyz = 0; xyz < 3; xyz++)
@@ -73,7 +73,7 @@ public class AsteroidToInsightSpawner : MonoBehaviour
             foreach (GameObject insightPiece in insightPieces)
             {
                 target = insightPiece;
-                GameObject asteroid = Instantiate(asteroidPrefab, insightPiece.transform.position - offSet, transform.rotation);
+                GameObject asteroid = Instantiate(asteroidPrefab, insightPiece.transform.position + offSet, transform.rotation);
                 asteroid.GetComponent<RedAsteroid>().orbitSpeed = orbitSpeedRange;
                 asteroid.GetComponent<RedAsteroid>().radius = radiusRange;
                 asteroid.GetComponent<RedAsteroid>().orbitCenter = target.transform.position;
@@ -91,7 +91,7 @@ public class AsteroidToInsightSpawner : MonoBehaviour
     public IEnumerator DelayOnSpawning()
     {
         yield return new WaitForSeconds(10f);
-        SpawnAsteroidsToInsight();
+        SpawnAsteroidsToInsight(1);
     }
             
 

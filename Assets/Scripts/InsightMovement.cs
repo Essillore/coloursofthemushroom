@@ -11,12 +11,16 @@ public class InsightMovement : MonoBehaviour
     public GameObject insightSpawner;
     Vector3 torque;
     public bool freeze = false;
+    SpinMushroomHat hatSpinner;
+    public GameObject playerHealth;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
+        playerHealth = GameObject.FindWithTag("Player");
+
+
     }
 
     // Update is called once per frame
@@ -33,7 +37,8 @@ public class InsightMovement : MonoBehaviour
         }
         else if (freeze)
         {
-
+            rb.freezeRotation = true;
+            rb.constraints = RigidbodyConstraints.FreezePosition;
         }
               
     }
@@ -46,12 +51,15 @@ public class InsightMovement : MonoBehaviour
 
     public void Collect()
     {
+       
         InsightSpawner insightTracker = insightSpawner.GetComponent<InsightSpawner>();
+        insightTracker.InsightCollected(insightNumber);
+        playerHealth.GetComponent<PlayerHealth>().Heal();
+        Destroy(gameObject);
+        
        // insightTracker.pieces[insightNumber] = true;
 
-        insightTracker.InsightCollected(insightNumber);
 
-        Destroy(gameObject);
 
         // insightTracker().pieces(insightNumber) = true;
         //play animation

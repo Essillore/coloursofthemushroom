@@ -33,11 +33,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void InsightsCollected(int insights)
-    {
-        insightsCollected = insights;
-        GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "InsightCollected", insights, "Insight", "insightCollected" + insightsCollected);
-    }
+   
 
     public void AsteroidDestroyed()
     {

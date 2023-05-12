@@ -59,7 +59,7 @@ public class PlayerControllerPhysics : MonoBehaviour
         myRB.AddRelativeTorque(Vector3.up * myRB.mass * hor * turnSpeed);
 
         //Roll player around local Y-axis
-        myRB.AddRelativeTorque(Vector3.forward * myRB.mass * roll);
+        myRB.AddRelativeTorque(Vector3.forward * myRB.mass * roll * turnSpeed);
 
     /*    Vector3 tempVect = new Vector3(hor, dep, ver);
         tempVect = tempVect.normalized * playerSpeed * Time.deltaTime;

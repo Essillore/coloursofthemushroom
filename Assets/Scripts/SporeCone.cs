@@ -84,7 +84,6 @@ public class SporeCone : MonoBehaviour
         if (insightPiece)
         {
             StopCoroutine(ChannelDuration());
-            insightPiece.freeze = false;
             channelReady = false;
         }
         Collectable tutorialSphere = other.gameObject.GetComponent<Collectable>();

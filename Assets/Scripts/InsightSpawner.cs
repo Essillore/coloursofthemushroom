@@ -13,6 +13,7 @@ public class InsightSpawner : MonoBehaviour
     public int insightCounter;
 
     public LevelManager levelManager;
+    public AsteroidToInsightSpawner asteroidSpawner;
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +43,15 @@ public class InsightSpawner : MonoBehaviour
 
     public void InsightCollected(int numberOfPiece)
     {
+
+     
+
         pieces[numberOfPiece] = true;
         mushroomCollectingColours.GetComponent<ColoursCollected>().WhichInsightWasCollected(numberOfPiece);
         insightCounter++;
-        GameManager.gameManager.InsightsCollected(insightCounter);
+        asteroidSpawner.SpawnAsteroidsToInsight(insightCounter+1);
         WinCondition();
+       
     }
 
 

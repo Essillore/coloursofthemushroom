@@ -35,9 +35,9 @@ public class FootVisualiseHealth : MonoBehaviour
         //possibly to be replaced with materials
 
         footFullWhite100 = new Color(1f, 1f, 1f, 1f);
-        footDamaged80 = new Color(0.8f, 0.8f, 0.8f, 1f);
-        footDamaged60 = new Color(0.6f, 0.6f, 0.6f, 1f);
-        footDamaged40 = new Color(0.4f, 0.4f, 0.4f, 4f);
+        footDamaged80 = new Color(0.8f, 0.36f, 0.41f, 1f);
+        footDamaged60 = new Color(1f, 0.0f, 0.1f, 1f);
+        footDamaged40 = new Color(0.53f, 0.0f, 0.06f, 1f);
         footFullBlack20 = new Color(0f, 0f, 0f, 1f);
 
         debugColor = new Color(0.4f, 0.9f, 0.7f, 1.0f);

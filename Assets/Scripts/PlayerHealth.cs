@@ -46,4 +46,11 @@ public class PlayerHealth : MonoBehaviour
         }
 
     }
+
+    public void Heal()
+    {
+        currentHealth = maxHealth;
+        healthShower.CheckIfFootNeedsChanged(currentHealth);
+    }
+
 }

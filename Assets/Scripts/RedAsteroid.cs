@@ -38,6 +38,11 @@ public class RedAsteroid : MonoBehaviour
         {
             orbitCenter = target.transform.position;
         }
+        if (target = null)
+        {
+
+            StartCoroutine(WaitToCheckWhereInsight());
+        }
 
         float orbitCircumference = 2 * Mathf.PI * radius;
         float orbitTime = orbitCircumference / orbitSpeed;
@@ -50,7 +55,6 @@ public class RedAsteroid : MonoBehaviour
          float torqueZ = 0;
          Vector3 torque = new Vector3(torqueX, torqueY, torqueZ);
          rb.AddTorque(torque);
-        
 
         Vector3 orbitDirection = transform.position - orbitCenter;
         orbitDirection = Quaternion.Euler(0, orbitSpeed * Time.deltaTime, 0) * orbitDirection;
@@ -84,4 +88,15 @@ public class RedAsteroid : MonoBehaviour
             asteroidHealth.TakeDamage(100);
 
         }
+
+        private IEnumerator WaitToCheckWhereInsight()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        if (target = null)
+        {
+
+            orbitCenter = new Vector3(0, 0, 0);
+        }
+    }
 }
