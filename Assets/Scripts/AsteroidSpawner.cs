@@ -56,6 +56,7 @@ public class AsteroidSpawner : MonoBehaviour
             GameObject asteroid = Instantiate(asteroidPrefab, position, transform.rotation);
             asteroid.GetComponent<RedAsteroid>().orbitSpeed = orbitSpeedRange;
             asteroid.GetComponent<RedAsteroid>().radius = radiusRange;
+            GameManager.gameManager.AsteroidsSpawnedNumber();
             xyz = 0;
         }
 

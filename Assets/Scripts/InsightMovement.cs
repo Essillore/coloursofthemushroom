@@ -13,12 +13,14 @@ public class InsightMovement : MonoBehaviour
     public bool freeze = false;
     SpinMushroomHat hatSpinner;
     public GameObject playerHealth;
+    public GameObject timer;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         playerHealth = GameObject.FindWithTag("Player");
+        timer = GameObject.FindWithTag("Timer");
 
 
     }
@@ -55,6 +57,7 @@ public class InsightMovement : MonoBehaviour
         InsightSpawner insightTracker = insightSpawner.GetComponent<InsightSpawner>();
         insightTracker.InsightCollected(insightNumber);
         playerHealth.GetComponent<PlayerHealth>().Heal();
+        timer.GetComponent<Timer>().InsightCollectedTime();
         Destroy(gameObject);
         
        // insightTracker.pieces[insightNumber] = true;

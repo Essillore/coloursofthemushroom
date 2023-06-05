@@ -9,6 +9,7 @@ public class PauseScript : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject deadMenu;
     public PlayerHealth playerHealth;
+    public GameObject timerHolder;
 
 
     // Start is called before the first frame update
@@ -61,6 +62,7 @@ public class PauseScript : MonoBehaviour
         paused = false;
         playerHealth.TakeDamage(-100);
         deadMenu.SetActive(false);
+        timerHolder.GetComponent<Timer>().TimedModeSetting(false);
     }
 
 }

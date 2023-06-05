@@ -33,7 +33,8 @@ public class CannonShooting : MonoBehaviour
             GameObject projectile = Instantiate(lightBall, transform.position, transform.rotation);
             // Quaternion.LookRotation(aimDir, Vector3.up)
             projectile.GetComponent<Rigidbody>().AddForce(aimDir * lightBallSpeed);
-           // print(transform.forward * lightBallSpeed);
+            // print(transform.forward * lightBallSpeed);
+            GameManager.gameManager.NumberOfShots();
         }
 
 

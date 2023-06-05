@@ -78,19 +78,21 @@ public class AsteroidToInsightSpawner : MonoBehaviour
                 asteroid.GetComponent<RedAsteroid>().radius = radiusRange;
                 asteroid.GetComponent<RedAsteroid>().orbitCenter = target.transform.position;
                 asteroid.GetComponent<RedAsteroid>().target = insightPiece;
+                GameManager.gameManager.AsteroidsSpawnedNumber();
             }
 
 
             //GameObject asteroid = Instantiate(asteroidPrefab, position, transform.rotation);
 
             // xyz = 0;
+            GameManager.gameManager.ScoreAsteroids();
         }
     }
 
 
     public IEnumerator DelayOnSpawning()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(3f);
         SpawnAsteroidsToInsight(1);
     }
             
