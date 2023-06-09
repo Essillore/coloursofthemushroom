@@ -21,8 +21,6 @@ public class InsightMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerHealth = GameObject.FindWithTag("Player");
         timer = GameObject.FindWithTag("Timer");
-
-
     }
 
     // Update is called once per frame
@@ -41,8 +39,7 @@ public class InsightMovement : MonoBehaviour
         {
             rb.freezeRotation = true;
             rb.constraints = RigidbodyConstraints.FreezePosition;
-        }
-              
+        }        
     }
 
     public void Teleport()
@@ -51,7 +48,17 @@ public class InsightMovement : MonoBehaviour
         transform.position = position;
     }
 
-    public void Collect()
+    public void OnTriggerEnter(Collider other)
+    {
+        PlayerHealth playerIsNear = other.gameObject.GetComponent<PlayerHealth>();
+        if (playerIsNear)
+        {
+            Collect();
+        }
+    }
+
+
+        public void Collect()
     {
        
         InsightSpawner insightTracker = insightSpawner.GetComponent<InsightSpawner>();

@@ -10,11 +10,6 @@ public class CannonShooting : MonoBehaviour
     public float fireRate = 0.5f;
     private float nextFire = 0.0f;
 
-
-
-//     public Rigidbody myRB;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -31,9 +26,7 @@ public class CannonShooting : MonoBehaviour
             Vector3 aimDir = (MousePosition.GetMouseWorldPosition() - transform.position).normalized;
             nextFire = Time.time + fireRate;
             GameObject projectile = Instantiate(lightBall, transform.position, transform.rotation);
-            // Quaternion.LookRotation(aimDir, Vector3.up)
             projectile.GetComponent<Rigidbody>().AddForce(aimDir * lightBallSpeed);
-            // print(transform.forward * lightBallSpeed);
             GameManager.gameManager.NumberOfShots();
         }
 

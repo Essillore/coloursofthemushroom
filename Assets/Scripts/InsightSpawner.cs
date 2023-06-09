@@ -36,11 +36,6 @@ public class InsightSpawner : MonoBehaviour
 
     }
 
-    //   if(insightSpawner.GetComponent<InsightSpawner>().pieces[i] == true)
-     //   { 
-             
-      //  }
-
     public void InsightCollected(int numberOfPiece)
     {
 
