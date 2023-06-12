@@ -171,7 +171,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: dfd1835387963dc41a8387af845d4d27, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 5555e778539bc214a95af53c3c6962af, type: 2}
+      objectReference: {fileID: 2100000, guid: 73a6f3a089e225d40a8b2cd63495c121, type: 2}
     - target: {fileID: 919132149155446097, guid: dfd1835387963dc41a8387af845d4d27, type: 3}
       propertyPath: m_Name
       value: redAsteroidUvmapped
