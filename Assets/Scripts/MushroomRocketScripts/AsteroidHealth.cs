@@ -22,7 +22,7 @@ public class AsteroidHealth : MonoBehaviour
     {
         
     }
-
+    // why two separate functions?
     public void Health()
     {
 

@@ -58,7 +58,7 @@ public class InsightMovement : MonoBehaviour
     }
 
 
-        public void Collect()
+    public void Collect()
     {
        
         InsightSpawner insightTracker = insightSpawner.GetComponent<InsightSpawner>();

@@ -18,7 +18,7 @@ public class AsteroidSpawner : MonoBehaviour
     [Range(100f, 500f)]
     [SerializeField] float radiusMax = 200f;
 
-    public int[] posOrNeg;
+    public int[] posOrNeg; // what is this for?
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,7 @@ public class AsteroidSpawner : MonoBehaviour
         {
             float orbitSpeedRange = Random.Range(orbitSpeedMin, orbitSpeedMax);
             float radiusRange = Random.Range(radiusMin, radiusMax);
-
+            // standard loop iterators are i and j
             int xyz = 0;
             for (xyz = 0; xyz < 3; xyz++)
             {

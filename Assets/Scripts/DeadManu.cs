@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// what is this for?
 public class DeadManu : MonoBehaviour
 {
     public PauseScript pauseScript;

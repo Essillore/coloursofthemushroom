@@ -70,7 +70,7 @@ public class InsightSpawner : MonoBehaviour
 
     public void NumberOfInsightCollected()
     {
-        
+        // this is obviously not complete yet
         foreach (bool value in pieces)
         {
             print(value);
