@@ -10,77 +10,63 @@ public class FootVisualiseHealth : MonoBehaviour
     public int stateOfHealth;
     public int lastStateOfHealth;
 
-    //Colours, possibly later replaced with materials
-    public Color footFullWhite100;
-    public Color footDamaged80;
-    public Color footDamaged60;
-    public Color footDamaged40;
-    public Color footFullBlack20;
-    public Color currentFootColour;
-    Color debugColor;
+    //Materials for different states of player/mushroom health
+    public Material footFullWhite100;
+    public Material footDamaged80;
+    public Material footDamaged60;
+    public Material footDamaged40;
+    public Material footFullBlack20;
+    public Material currentFootMaterial;
 
     public Renderer footRenderer;
 
     void Start()
     {
         footRenderer = GetComponent<Renderer>();
+        footRenderer.enabled = true;
 
         materials = new Material[6];
-        CreateColours();
+        materials = footRenderer.materials;
     }
 
-    public void CreateColours()
-    {
-        //create colours, currents white, greys and black
-        //possibly to be replaced with materials
-
-        footFullWhite100 = new Color(1f, 1f, 1f, 1f);
-        footDamaged80 = new Color(0.8f, 0.36f, 0.41f, 1f);
-        footDamaged60 = new Color(1f, 0.0f, 0.1f, 1f);
-        footDamaged40 = new Color(0.53f, 0.0f, 0.06f, 1f);
-        footFullBlack20 = new Color(0f, 0f, 0f, 1f);
-
-        debugColor = new Color(0.4f, 0.9f, 0.7f, 1.0f);
-    }
-
+    //State of health converts player health (0-100) to switch cases 0-5
     public void CheckIfFootNeedsChanged(float currentHealth)
     {
-        //ChangeFootColour(currentHealth);
         stateOfHealth = Mathf.CeilToInt(currentHealth / 20);
 
+        //If player health has crossed the treshold, change foot colour, by changing(material)
         if (stateOfHealth != lastStateOfHealth)
         {
             ChangeFootColour(stateOfHealth);
             lastStateOfHealth = stateOfHealth;
         }
     }
-
+    //Changes foot colour trough changing material to show player health
     public void ChangeFootColour(int stateOfHealth)
     {
         materials[0] = footMushroom;
-        //var footRenderer = GetComponent<Renderer>();
   
         switch (stateOfHealth)
         {
             case 5:
                 print("Full Health");
-                currentFootColour = footFullWhite100;
+                currentFootMaterial = footFullWhite100;
                 break;
             case 4:
                 print("Taken dmg");
-                currentFootColour = footDamaged80;
+                currentFootMaterial = footDamaged80;
                 break;
             case 3:
                 print("Halfway-ish");
-                currentFootColour = footDamaged60;
+                currentFootMaterial = footDamaged60;
                 break;
             case 2:
                 print("Not good");
-                currentFootColour = footDamaged40;
+                currentFootMaterial = footDamaged40;
                 break;
             case 1:
                 print("Almost ded");
-                currentFootColour = footFullBlack20;
+                currentFootMaterial = footFullBlack20;
                 break;
             case 0:
                 print("dead");
@@ -88,12 +74,12 @@ public class FootVisualiseHealth : MonoBehaviour
                 break;
             default:
                 Debug.Log("Have you changed the logic or the hp-range?");
-                currentFootColour = debugColor;
+                currentFootMaterial = footFullBlack20;
                 break;
         }
-        // Call SetColor using the shader property name "_Color" and setting the color to the custom color you created
-        footMushroom.SetColor("_Color", currentFootColour);
-        footRenderer.materials = materials;
+
+        //Assign the updated Materials array back to the Renderer component
+        GetComponent<Renderer>().material = currentFootMaterial;
     }
 
 
