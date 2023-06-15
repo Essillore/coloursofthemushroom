@@ -14,35 +14,38 @@ public class RedAsteroid : MonoBehaviour
     public float alpha = 2f;
     public float radius = 1;
 
-    //Asteroid health
     private AsteroidHealth asteroidHealth;
-
-    // F = m* v^2 / r
-    //where forceForce is the force, m is the mass of the object, v is the speed of the object, and r is the radius of the circular path.
-    //Inertia is the moment of inertia of the object and
-    //alpha is the angular acceleration of the object.
-
     private Rigidbody rb;
+    private bool hasCollided = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        asteroidHealth = GetComponent<AsteroidHealth>();
-
-        
+        asteroidHealth = GetComponent<AsteroidHealth>();       
     }
 
     void FixedUpdate()
     {
+
+       //Attempts to make asteroid follow the insight piece, if that was it's orbit center,
+       //even when the insight piece teleports,
+       //with delaying checking where the insight piece
+       //and to make asteroids that spawn with the insight piece already collected, 
+       //to orbit the center instead
+       //does not work as intended.
         if (target != null)
         {
             orbitCenter = target.transform.position;
         }
         if (target = null)
         {
-
             StartCoroutine(WaitToCheckWhereInsight());
         }
+
+        //Unnecessarily complicated physics for asteroid movement,
+        //in an attempt to understand better how physics work.
+        //Asteroid rotates with physics (torque)
+        //but moves with transform.position
 
         float orbitCircumference = 2 * Mathf.PI * radius;
         float orbitTime = orbitCircumference / orbitSpeed;
@@ -60,24 +63,29 @@ public class RedAsteroid : MonoBehaviour
         orbitDirection = Quaternion.Euler(0, orbitSpeed * Time.deltaTime, 0) * orbitDirection;
         transform.position = orbitCenter + orbitDirection.normalized * radius;
 
-
-        //Vector3 forceVector = new Vector3(x, 0, z) * forceToAdd;
-        //rb.AddForce(forceVector);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Player that has rigid body
+        // Check if collision has already occurred,
+        // to make the same asteroid do dmg to player only once,
+        // even with its delayed destruction
+        if (hasCollided)
+        {
+            return;
+        }
+
+
         PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-
-
-
-        //When touch player, player takes 20dmg, in 1s asteroid takes 100 dmg -> destroys -> explodes -> spawns light
+        //When touch player, player takes 20dmg,
+        //in 0.5s asteroid takes 100 dmg -> destroys -> explodes -> spawns light
         if (playerHealth)
         {
             playerHealth.TakeDamage(20);
-            print("Asteroid has collided with player");
             StartCoroutine(DelayOnDestroy());
+
+            //Same asteroid collides only once with player
+            hasCollided = true;
         }
 
     }
@@ -95,7 +103,6 @@ public class RedAsteroid : MonoBehaviour
 
         if (target = null)
         {
-
             orbitCenter = new Vector3(0, 0, 0);
         }
     }
