@@ -95,11 +95,12 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _ParticleSize: 0.3
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Random: 0
     - _ReceiveShadows: 1
-    - _ScrollSpeed: 0.3
+    - _ScrollSpeed: 0.6
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -109,9 +110,9 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 2.628272, g: 1.1857853, b: 0, a: 0.6509804}
-    - _ColorB: {r: 3.4096396, g: 0, b: 0.06001474, a: 0.79607844}
-    - _EmissionColor: {r: 1.2311444, g: 0, b: 0, a: 1}
+    - _Color: {r: 0.092156865, g: 0, b: 0.003921569, a: 0.6509804}
+    - _ColorB: {r: 0.0627451, g: 0.003921569, b: 0, a: 0.6117647}
+    - _EmissionColor: {r: 0.00011315667, g: 0, b: 0, a: 0.09803922}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &3901734063967742224
