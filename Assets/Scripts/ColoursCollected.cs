@@ -29,13 +29,7 @@ public class ColoursCollected : MonoBehaviour
         InsightSpawner insightTracker = insightSpawner.GetComponent<InsightSpawner>();
     }
  
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
-
+    //Assign rainbow colours to inner ring of mushroom hat, corresponding to insight piece collected.
     public void WhichInsightWasCollected(int i)
     {
         materials[i] = coloursCollected;

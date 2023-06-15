@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour
 {
     public float timer = 70f;
     public float startTime;
+    public float insightGiveMoreTime = 40f;
 
     public PauseScript pauseScript;
     public GameObject timedMenu;
@@ -28,8 +29,6 @@ public class Timer : MonoBehaviour
         timer = 70f;
         startTime = Time.time;
         StartCoroutine(TimeToPlay());
-
-
     }
 
     public void TimedModeSetting(bool isTimedMode)
@@ -44,12 +43,8 @@ public class Timer : MonoBehaviour
             timedMode = false;
             timedMenu.SetActive(false);
         }
-
-        
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         TimeLeft();
@@ -59,7 +54,6 @@ public class Timer : MonoBehaviour
     {
         while (timer > 0)
         {
-
         yield return new WaitForSeconds(1f);
         timer -= 1f;
         }
@@ -77,7 +71,7 @@ public class Timer : MonoBehaviour
 
     public void InsightCollectedTime()
     {
-        timer += 40f;
+        timer += insightGiveMoreTime;
     }
 
 

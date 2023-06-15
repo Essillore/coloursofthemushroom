@@ -6,6 +6,7 @@ using GameAnalyticsSDK.Events;
 
 public class LevelChangerTrigger : MonoBehaviour
 {
+
     public LevelManager levelManager;
 
     // Start is called before the first frame update

@@ -4,30 +4,11 @@ using UnityEngine;
 
 public class SporeCone : MonoBehaviour
 {
-    public float channelStart;
     public bool channelReady = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-
-
-    }
 
     void OnEnable()
     {
         Vector3 sporeDirMouse = (MousePosition.GetMouseWorldPosition()- transform.position).normalized;
-        //transform.rotation = Quaternion.LookRotation(sporeDirMouse, Vector3.up);
-
-        //Quaternion.LookRotation(sporeDir, Vector3.up)
-        //Quaternion.Euler(1.5f, 0f, 0f);
     }
 
     private void OnDisable()
@@ -40,19 +21,20 @@ public class SporeCone : MonoBehaviour
         InsightMovement insightPiece = other.gameObject.GetComponent<InsightMovement>();
         if (insightPiece)
         {
-           channelStart = Time.time;
             insightPiece.freeze = true;
-         //   print(Time.time);
             StartCoroutine(ChannelDuration());
         }
 
         Collectable tutorialSphere = other.gameObject.GetComponent<Collectable>();
         if (tutorialSphere)
         {
-            channelStart = Time.time;
             StartCoroutine(ChannelDuration());
             }
     }
+
+    //Currently unused mechanics. Player can collect insight pieces by flying over them.
+    //Original intent was to collect them which this sporecone, left the code, it still works, but player
+    //will probably collect them in other way.
 
     private void OnTriggerStay(Collider other)
     {

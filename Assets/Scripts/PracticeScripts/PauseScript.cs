@@ -11,15 +11,12 @@ public class PauseScript : MonoBehaviour
     public PlayerHealth playerHealth;
     public GameObject timerHolder;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
         deadMenu.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -27,15 +24,6 @@ public class PauseScript : MonoBehaviour
         if (Input.GetButtonDown("Cancel"))
         {
             paused = !paused;
-            /*if (paused == true)
-            {
-                paused = false;
-            }
-            else if (paused == false)
-            {
-                paused = true;
-            }
-           */
         }
 
         // Pauses the game and opens the menu
@@ -57,6 +45,7 @@ public class PauseScript : MonoBehaviour
         deadMenu.SetActive(true);
     }
 
+    //Allow player to continue when health 0, set player health to full, disables timer.
     public void BorrowedTime()
     {
         paused = false;
