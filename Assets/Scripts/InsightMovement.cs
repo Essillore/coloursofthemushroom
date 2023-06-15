@@ -21,6 +21,7 @@ public class InsightMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerHealth = GameObject.FindWithTag("Player");
         timer = GameObject.FindWithTag("Timer");
+
     }
 
     // Update is called once per frame
@@ -57,26 +58,19 @@ public class InsightMovement : MonoBehaviour
         }
     }
 
-
         public void Collect()
-    {
-       
+        {     
         InsightSpawner insightTracker = insightSpawner.GetComponent<InsightSpawner>();
         insightTracker.InsightCollected(insightNumber);
         playerHealth.GetComponent<PlayerHealth>().Heal();
+        if(GameManager.gameManager.timerEnabled ==true)
+        {
         timer.GetComponent<Timer>().InsightCollectedTime();
+        }
         Destroy(gameObject);
         
-       // insightTracker.pieces[insightNumber] = true;
-
-
-
-        // insightTracker().pieces(insightNumber) = true;
         //play animation
-        // Send message to gamemanager that this piece is collected
-        //gamemanager sends message to player shader/material? to visualize progress
-        //Placeholder: score to ui.
 
-    }
+        }
 
 }

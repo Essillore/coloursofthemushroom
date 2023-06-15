@@ -15,10 +15,8 @@ public class InsightSpawner : MonoBehaviour
     public LevelManager levelManager;
     public AsteroidToInsightSpawner asteroidSpawner;
 
-    // Start is called before the first frame update
     void Start()
     {
-      //  int howManyInsightYouCollectedBeforeYouDied;
       
         pieces = new bool[7];
 
@@ -32,29 +30,16 @@ public class InsightSpawner : MonoBehaviour
             insightPiece.GetComponent<InsightMovement>().insightNumber = i;
                 pieces[i] = false;
         }
-
-
     }
 
     public void InsightCollected(int numberOfPiece)
     {
-
-     
-
         pieces[numberOfPiece] = true;
         mushroomCollectingColours.GetComponent<ColoursCollected>().WhichInsightWasCollected(numberOfPiece);
         insightCounter++;
         asteroidSpawner.SpawnAsteroidsToInsight(insightCounter+1);
         WinCondition();
        
-    }
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void WinCondition()
@@ -67,21 +52,4 @@ public class InsightSpawner : MonoBehaviour
             levelManager.ChangeLevel(4);
         }
     }
-
-    public void NumberOfInsightCollected()
-    {
-        
-        foreach (bool value in pieces)
-        {
-            print(value);
-            if (value == true)
-            {
-                
-            }
-
-        }
-    }
-
-
-    
 }

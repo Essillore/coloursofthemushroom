@@ -20,11 +20,11 @@ public class AsteroidToInsightSpawner : MonoBehaviour
     [Range(20f, 80f)]
     [SerializeField] float radiusMax = 50f;
 
-    public int[] posOrNeg;
+    public int[] posOrNegSpawnCoord;
 
     void Start()
     {
-        insightPieces = new GameObject[8];
+        insightPieces = new GameObject[7];
         StartCoroutine(DelayOnSpawning());
         
     }
@@ -34,7 +34,7 @@ public class AsteroidToInsightSpawner : MonoBehaviour
         insightPieces = GameObject.FindGameObjectsWithTag("InsightPiece");
         Debug.Log("Found " + insightPieces.Length + " InsightPieces.");
 
-        posOrNeg = new int[3];
+        posOrNegSpawnCoord = new int[3];
 
         for (int i = 0; i < asteroidCount; i++)
         {
@@ -43,14 +43,14 @@ public class AsteroidToInsightSpawner : MonoBehaviour
 
             for (int j = 0; j < 3; j++)
             {
-                posOrNeg[j] = Random.Range(0, 2);
-                if (posOrNeg[j] == 0)
+                posOrNegSpawnCoord[j] = Random.Range(0, 2);
+                if (posOrNegSpawnCoord[j] == 0)
                 {
-                    posOrNeg[j] = -1;
+                    posOrNegSpawnCoord[j] = -1;
                 }
                 else
                 {
-                    posOrNeg[j] = 1;
+                    posOrNegSpawnCoord[j] = 1;
                 }
             }
 

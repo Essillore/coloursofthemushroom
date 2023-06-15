@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour
     public GameObject accuracyPanel;
     public TMP_Text accuracyString;
 
+    public bool scoreEnabled = false;
+    public bool accuracyEnabled = false;
+    public bool timerEnabled = false;
+
     void Start()
     {
         GameAnalytics.Initialize();
@@ -37,25 +41,49 @@ public class GameManager : MonoBehaviour
         }
         retryCount = 0;
     }
+    
+    public void TimedModeOn()
+    {
+        timerEnabled = !timerEnabled;
+    }
+
+    public void ScoreModeOn()
+    { 
+            scoreEnabled = !scoreEnabled;
+    }
+
+    public void AccuracyOn()
+    {
+        accuracyEnabled = !accuracyEnabled;
+    }
 
     private void FixedUpdate()
     {
         AccuracyPercentage();
         //Lightweight check to know, when player has restarted the level
         //as the game manager is persistent.
-        if (scorePanel == null)
-        {
-            Retry();
-        }
+        
+            if (scoreEnabled && scorePanel == null)
+            {
+                Retry();
+            }
+        
     }
 
     //Finds score/accuracy UI elements, and resets stats, when player restarts a level.
     public void Retry()
     {
+
+        if (scoreEnabled)
+        {
         scorePanel = GameObject.FindWithTag("ScoreUI");
         scoreString = scorePanel.GetComponentInChildren<TMP_Text>();
+        }
+        if (accuracyEnabled)
+        {
         accuracyPanel = GameObject.FindWithTag("AccuracyUI");
         accuracyString = accuracyPanel.GetComponentInChildren<TMP_Text>();
+        }
         asteroidsDestroyed = 0;
         asteroidsSpawned = 100;
         numberOfShootLight = 0;
@@ -71,7 +99,10 @@ public class GameManager : MonoBehaviour
     public void AsteroidDestroyed()
     {
         asteroidsDestroyed += 1;
-        ScoreAsteroids();
+        if (scoreEnabled)
+        {
+                ScoreAsteroids();
+        }
     }
 
     public void ScoreAsteroids()
@@ -93,7 +124,10 @@ public class GameManager : MonoBehaviour
     public void AccuracyPercentage()
     {
         accuracy = ((float)asteroidsDestroyed / (float)numberOfShootLight) * 100;
-        ScoreAccuracy();
+        if (accuracyEnabled)
+        {
+                ScoreAccuracy();
+        }
     }
 
     public void ScoreAccuracy()
