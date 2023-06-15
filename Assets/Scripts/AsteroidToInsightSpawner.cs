@@ -22,7 +22,6 @@ public class AsteroidToInsightSpawner : MonoBehaviour
 
     public int[] posOrNeg;
 
-    // Start is called before the first frame update
     void Start()
     {
         insightPieces = new GameObject[8];
@@ -35,38 +34,25 @@ public class AsteroidToInsightSpawner : MonoBehaviour
         insightPieces = GameObject.FindGameObjectsWithTag("InsightPiece");
         Debug.Log("Found " + insightPieces.Length + " InsightPieces.");
 
-
         posOrNeg = new int[3];
-
-        /*
-        posOrNeg[0] = 1;
-        posOrNeg[1] = -1;
-        posOrNeg[2] = -3;
-        */
-
 
         for (int i = 0; i < asteroidCount; i++)
         {
             float orbitSpeedRange = Random.Range(orbitSpeedMin, orbitSpeedMax);
             float radiusRange = Random.Range(radiusMin, radiusMax)* radiusMultiplier;
 
-            int xyz = 0;
-            for (xyz = 0; xyz < 3; xyz++)
+            for (int j = 0; j < 3; j++)
             {
-                posOrNeg[xyz] = Random.Range(0, 2);
-                if (posOrNeg[xyz] == 0)
+                posOrNeg[j] = Random.Range(0, 2);
+                if (posOrNeg[j] == 0)
                 {
-                    posOrNeg[xyz] = -1;
+                    posOrNeg[j] = -1;
                 }
                 else
                 {
-                    posOrNeg[xyz] = 1;
+                    posOrNeg[j] = 1;
                 }
-
             }
-
-
-            // Vector3 position = new Vector3(Random.Range(50f, 200f) * posOrNeg[0], Random.Range(50f, 200f) * posOrNeg[1], Random.Range(50f, 200f) * posOrNeg[2]);
 
             Vector3 offSet = new Vector3(radiusRange, Random.Range(-5f,6f), radiusRange);
 
@@ -80,32 +66,14 @@ public class AsteroidToInsightSpawner : MonoBehaviour
                 asteroid.GetComponent<RedAsteroid>().target = insightPiece;
                 GameManager.gameManager.AsteroidsSpawnedNumber();
             }
-
-
-            //GameObject asteroid = Instantiate(asteroidPrefab, position, transform.rotation);
-
-            // xyz = 0;
             GameManager.gameManager.ScoreAsteroids();
         }
     }
-
 
     public IEnumerator DelayOnSpawning()
     {
         yield return new WaitForSeconds(3f);
         SpawnAsteroidsToInsight(1);
     }
-            
-
-    public void Update()
-    {
-
-
-
-
-    }
-
-
-
 
 }
