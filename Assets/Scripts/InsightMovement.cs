@@ -11,7 +11,6 @@ public class InsightMovement : MonoBehaviour
     public GameObject insightSpawner;
     Vector3 torque;
     public bool freeze = false;
-    SpinMushroomHat hatSpinner;
     public GameObject playerHealth;
     public GameObject timer;
 
@@ -20,6 +19,7 @@ public class InsightMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         playerHealth = GameObject.FindWithTag("Player");
+        insightSpawner = GameObject.FindWithTag("InsightSpawner");
         timer = GameObject.FindWithTag("Timer");
 
     }
@@ -58,19 +58,14 @@ public class InsightMovement : MonoBehaviour
         }
     }
 
-        public void Collect()
-        {     
-        InsightSpawner insightTracker = insightSpawner.GetComponent<InsightSpawner>();
-        insightTracker.InsightCollected(insightNumber);
-        playerHealth.GetComponent<PlayerHealth>().Heal();
-        if(GameManager.gameManager.timerEnabled ==true)
-        {
-        timer.GetComponent<Timer>().InsightCollectedTime();
-        }
-        Destroy(gameObject);
-        
+    public void Collect()
+    {     
+        insightSpawner.GetComponent<InsightSpawner>().InsightCollected(insightNumber);
+        //playerHealth.GetComponent<PlayerHealth>().Heal();
+        //timer.GetComponent<Timer>().InsightCollectedTime();
+        Destroy(gameObject);    
         //play animation
 
-        }
+    }
 
 }
