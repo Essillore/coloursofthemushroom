@@ -22,9 +22,11 @@ public class ColoursCollected : MonoBehaviour
         materials = new Material[8];
 
         materials = rend.materials;
-   
-        insightSpawner.GetComponent<InsightSpawner>().mushroomCollectingColours = gameObject;
- 
+
+        insightSpawner = GameObject.FindWithTag("InsightSpawner");
+
+        //insightSpawner.GetComponent<InsightSpawner>().mushroomCollectingColours = gameObject;
+
         MeshRenderer myRenderer = GetComponent<MeshRenderer>();
         InsightSpawner insightTracker = insightSpawner.GetComponent<InsightSpawner>();
     }

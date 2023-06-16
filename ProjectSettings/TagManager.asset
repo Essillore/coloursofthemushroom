@@ -10,6 +10,9 @@ TagManager:
   - Timer
   - AccuracyUI
   - ScoreUI
+  - InsightSpawner
+  - PauseMenuHolder
+  - ColourCollecterMushroom
   layers:
   - Default
   - TransparentFX
