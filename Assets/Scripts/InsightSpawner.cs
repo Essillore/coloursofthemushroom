@@ -17,8 +17,9 @@ public class InsightSpawner : MonoBehaviour
 
     void Start()
     {
-      
-        pieces = new bool[7];
+        mushroomCollectingColours = GameObject.FindWithTag("ColourCollecterMushroom");
+
+        pieces = new bool[8];
 
             for (int i = 0; i < 7; i++)
             {
