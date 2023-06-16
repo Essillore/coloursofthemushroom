@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 1453783541916887291}
   - component: {fileID: 4906984940667756302}
   m_Layer: 0
-  m_Name: InsightPiece3
-  m_TagString: InsightPiece
+  m_Name: piece
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1051327586969804807, guid: 9973d328005eb1149a772eaa185242cf, type: 3}
+  - {fileID: 2100000, guid: bd31edf36a93a2540ac233c0f53a95c3, type: 2}
   - {fileID: 2100000, guid: d5cb89d7ee9112343bce04e78beb479d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
