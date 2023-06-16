@@ -107,7 +107,10 @@ public class GameManager : MonoBehaviour
 
     public void ScoreAsteroids()
     {
+        if (scoreEnabled)
+        {
         scoreString.text = "Asteroids " + asteroidsDestroyed.ToString() + " / " + asteroidsSpawned.ToString();
+        }
     }
 
     //How many times the player has shot a LMB lightbullet. Used to calculate accuracy.
@@ -148,5 +151,6 @@ public class GameManager : MonoBehaviour
     public void RetrySphereWorld()
     {
         retryCount++;
+
     }
 }
