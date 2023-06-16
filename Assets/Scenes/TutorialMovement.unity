@@ -5647,6 +5647,9 @@ MonoBehaviour:
   scoreString: {fileID: 1241626602}
   accuracyPanel: {fileID: 953071917}
   accuracyString: {fileID: 862464673}
+  scoreEnabled: 0
+  accuracyEnabled: 0
+  timerEnabled: 0
 --- !u!4 &1569335380
 Transform:
   m_ObjectHideFlags: 0
@@ -6796,7 +6799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2130166344
 MonoBehaviour:
   m_ObjectHideFlags: 0
