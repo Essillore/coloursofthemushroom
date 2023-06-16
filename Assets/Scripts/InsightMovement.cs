@@ -61,7 +61,7 @@ public class InsightMovement : MonoBehaviour
     public void Collect()
     {     
         insightSpawner.GetComponent<InsightSpawner>().InsightCollected(insightNumber);
-        //playerHealth.GetComponent<PlayerHealth>().Heal();
+        playerHealth.GetComponent<PlayerHealth>().Heal();
         //timer.GetComponent<Timer>().InsightCollectedTime();
         Destroy(gameObject);    
         //play animation
