@@ -1325,6 +1325,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 61398624627891787, guid: 3828058d476f2924bb93b3034ea74060, type: 3}
+      propertyPath: insightSpawner
+      value: 
+      objectReference: {fileID: 1257133217}
+    - target: {fileID: 3775775767600228869, guid: 3828058d476f2924bb93b3034ea74060, type: 3}
+      propertyPath: m_TagString
+      value: ColourCollecterMushroom
+      objectReference: {fileID: 0}
     - target: {fileID: 6341408875823465193, guid: 3828058d476f2924bb93b3034ea74060, type: 3}
       propertyPath: pauseScript
       value: 
@@ -1403,6 +1411,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3828058d476f2924bb93b3034ea74060, type: 3}
+--- !u!1 &593511778 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3775775767600228869, guid: 3828058d476f2924bb93b3034ea74060, type: 3}
+  m_PrefabInstance: {fileID: 593511777}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &607242256
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,7 +1567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &610741902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1562,7 +1575,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610741901}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efdb8e43580000842bbd43046fb7f50e, type: 3}
   m_Name: 
@@ -1583,7 +1596,7 @@ MonoBehaviour:
   orbitSpeedMax: 100
   radiusMin: 10
   radiusMax: 50
-  posOrNeg: 
+  posOrNegSpawnCoord: 
 --- !u!4 &610741903
 Transform:
   m_ObjectHideFlags: 0
@@ -2968,7 +2981,7 @@ GameObject:
   - component: {fileID: 1257133218}
   m_Layer: 0
   m_Name: InsightSpawner
-  m_TagString: Untagged
+  m_TagString: InsightSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2985,16 +2998,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5109ce2875e3a1845a45a872618f36ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mushroomCollectingColours: {fileID: 0}
+  mushroomCollectingColours: {fileID: 593511778}
   insightPuzzles:
-  - {fileID: 1453783541916887295, guid: 8f60916d5ba75b84eb06561cb82c8391, type: 3}
-  - {fileID: 1453783541916887295, guid: 8f60916d5ba75b84eb06561cb82c8391, type: 3}
-  - {fileID: 1453783541916887295, guid: 8f60916d5ba75b84eb06561cb82c8391, type: 3}
-  - {fileID: 1453783541916887295, guid: 8f60916d5ba75b84eb06561cb82c8391, type: 3}
-  - {fileID: 1453783541916887295, guid: 8f60916d5ba75b84eb06561cb82c8391, type: 3}
-  - {fileID: 1453783541916887295, guid: 8f60916d5ba75b84eb06561cb82c8391, type: 3}
-  - {fileID: 1453783541916887295, guid: 8f60916d5ba75b84eb06561cb82c8391, type: 3}
-  - {fileID: 1453783541916887295, guid: 8f60916d5ba75b84eb06561cb82c8391, type: 3}
+  - {fileID: 836490037649848682, guid: 6dd6614e2097bf149b74130f7c1e1f64, type: 3}
+  - {fileID: 836490037649848682, guid: 6dd6614e2097bf149b74130f7c1e1f64, type: 3}
+  - {fileID: 836490037649848682, guid: 6dd6614e2097bf149b74130f7c1e1f64, type: 3}
+  - {fileID: 836490037649848682, guid: 6dd6614e2097bf149b74130f7c1e1f64, type: 3}
+  - {fileID: 836490037649848682, guid: 6dd6614e2097bf149b74130f7c1e1f64, type: 3}
+  - {fileID: 836490037649848682, guid: 6dd6614e2097bf149b74130f7c1e1f64, type: 3}
+  - {fileID: 836490037649848682, guid: 6dd6614e2097bf149b74130f7c1e1f64, type: 3}
+  - {fileID: 836490037649848682, guid: 6dd6614e2097bf149b74130f7c1e1f64, type: 3}
   pieces: 0000000000000000
   insightCounter: 0
   levelManager: {fileID: 469700360}
@@ -3803,6 +3816,9 @@ MonoBehaviour:
   scoreString: {fileID: 607242258}
   accuracyPanel: {fileID: 1682593261}
   accuracyString: {fileID: 783808229}
+  scoreEnabled: 0
+  accuracyEnabled: 0
+  timerEnabled: 0
 --- !u!4 &1569335380
 Transform:
   m_ObjectHideFlags: 0
