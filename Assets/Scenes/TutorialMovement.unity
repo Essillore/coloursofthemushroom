@@ -6562,6 +6562,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6106982350827678375, guid: 3828058d476f2924bb93b3034ea74060, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6341408875823465193, guid: 3828058d476f2924bb93b3034ea74060, type: 3}
       propertyPath: pauseScript
       value: 

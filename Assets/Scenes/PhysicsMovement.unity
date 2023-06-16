@@ -3287,6 +3287,10 @@ PrefabInstance:
       propertyPath: footFullWhite100
       value: 
       objectReference: {fileID: 2100000, guid: d758665da7cea1b4487ca63f7b5cf94b, type: 2}
+    - target: {fileID: 6106982350827678375, guid: 3828058d476f2924bb93b3034ea74060, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6224774635631210982, guid: 3828058d476f2924bb93b3034ea74060, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
