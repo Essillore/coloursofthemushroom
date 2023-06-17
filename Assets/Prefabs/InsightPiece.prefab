@@ -95,9 +95,9 @@ GameObject:
   - component: {fileID: 3019407266487346546}
   - component: {fileID: 3019407266487346547}
   - component: {fileID: 3019407266487346550}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: InsightPiece3 1
-  m_TagString: InsightPiece
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

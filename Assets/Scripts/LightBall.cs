@@ -6,16 +6,9 @@ public class LightBall : MonoBehaviour
 {
     public GameObject explosionEffect;
 
-    // Start is called before the first frame update
     void Start()
     {
         Destroy(gameObject, 5f);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //print(this.GetComponent<Rigidbody>().velocity.magnitude.ToString());
     }
     
     private void OnCollisionEnter(Collision collision)
@@ -30,14 +23,22 @@ public class LightBall : MonoBehaviour
         //Insight piece
         InsightMovement insightPiece = collision.gameObject.GetComponent<InsightMovement>();
 
+        LightHealth littleLight = collision.gameObject.GetComponent<LightHealth>();
+
         //When touch asteroid, asteroid takes 100 dmg -> destroys -> explodes -> spawns light
         if (asteroidClash | asteroidClashBlack)
-        {   
+        {
             asteroidHealth.TakeDamage(100);
         }
         else if (insightPiece)
         {
             insightPiece.Teleport();
+        }
+        else if (littleLight)
+        {
+            print("Hit light physically");
+            //commented away to make accidentally destroying lights harder
+            //littleLight.TakeDamage(20);
         }
 
     }

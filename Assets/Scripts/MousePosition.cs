@@ -16,12 +16,6 @@ public class MousePosition : MonoBehaviour
         Instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -37,11 +31,14 @@ public class MousePosition : MonoBehaviour
                    // Destroy(raycastHit.transform.gameObject);
                     AsteroidHealth asteroidHealth = raycastHit.transform.GetComponent<AsteroidHealth>();
                     asteroidHealth.TakeDamage(100);
-
                 } else if (raycastHit.transform.GetComponent<InsightMovement>())
                 {
                     InsightMovement insightPiece = raycastHit.transform.GetComponent<InsightMovement>();
                     insightPiece.Teleport();
+                } else if (raycastHit.transform.GetComponent<LightHealth>())
+                {
+                    LightHealth littleLight = raycastHit.transform.GetComponent<LightHealth>();
+                    littleLight.TakeDamage(20);
                 }
             }
         }

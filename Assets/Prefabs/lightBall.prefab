@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 4689820147192091195}
   - component: {fileID: 8385019447695704014}
   - component: {fileID: 7199093645822659787}
-  - component: {fileID: 5826325874406366169}
   - component: {fileID: 5391364248149046396}
+  - component: {fileID: 130821116077917297}
   - component: {fileID: 7306091278544548197}
   - component: {fileID: 318764939979698209}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: lightBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,19 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5826325874406366169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4289204767840059638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dab1e87b32a930448b7932980228d1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionEffect: {fileID: 1318318595812237431, guid: 8c765fca6e2c46d4c8b6c04f2d787404, type: 3}
 --- !u!54 &5391364248149046396
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -115,7 +102,20 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!114 &130821116077917297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4289204767840059638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dab1e87b32a930448b7932980228d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 1318318595812237431, guid: 8c765fca6e2c46d4c8b6c04f2d787404, type: 3}
 --- !u!135 &7306091278544548197
 SphereCollider:
   m_ObjectHideFlags: 0
