@@ -10,17 +10,19 @@ public class LightHealth : MonoBehaviour
     public GameObject lightHolder;
     //replace with new effect, shrinking and "black hole" when that's done
     public GameObject lightImplosionEffect;
+
+    //public GlassBreaksSoundPlayer glassShattersSound;
+
     void Start()
     {
     lightCurrentHealth = lightMaxHealth;
-    lightHolder = transform.parent.gameObject; 
-
+    lightHolder = transform.parent.gameObject;
+    //glassShattersSound = GetComponent<GlassBreaksSoundPlayer>();
     }
 
     public void TakeDamage(int amount)
     {
         lightCurrentHealth -= amount;
-
         Health();
     }
 
@@ -29,7 +31,7 @@ public class LightHealth : MonoBehaviour
 
         if (lightCurrentHealth <= 0)
         {
-            Instantiate(lightImplosionEffect, transform.position, transform.rotation);
+            Instantiate(lightImplosionEffect, transform.position, transform.rotation);          
             Destroy(lightHolder);
         }
     }

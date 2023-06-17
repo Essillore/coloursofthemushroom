@@ -33,7 +33,6 @@ Transform:
   m_Children:
   - {fileID: 3491504682956105875}
   - {fileID: 1084441448940333782}
-  - {fileID: 7146929235142481550}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -112,7 +111,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7146929235142481550}
   m_Father: {fileID: 4689820147192091195}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -144,6 +144,8 @@ MonoBehaviour:
   lightMaxHealth: 20
   lightCurrentHealth: 0
   lightHolder: {fileID: 4289204767840059638}
+  lightImplosionEffect: {fileID: 1318318595812237431, guid: 319b91621d181f5438cf373650a788dc, type: 3}
+  glassShattersSound: {fileID: 0}
 --- !u!54 &5008555947796772186
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -190,8 +192,8 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4689820147192091195}
-  m_RootOrder: 2
+  m_Father: {fileID: 3491504682956105875}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5786143087956313819
 MeshFilter:
