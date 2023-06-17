@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class lightBall : MonoBehaviour
+public class LightBall : MonoBehaviour
 {
     public GameObject explosionEffect;
 
@@ -40,14 +40,6 @@ public class lightBall : MonoBehaviour
             insightPiece.Teleport();
         }
 
-        /*    if (collision.gameObject.GetComponent<RedAsteroid>() | collision.gameObject.GetComponent<AsteroidMovement>()) 
-        {
-            
-            Instantiate(explosionEffect, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-        }
-       */
     }
 }
 

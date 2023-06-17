@@ -90,7 +90,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-
     public void AsteroidsSpawnedNumber()
     {
         asteroidsSpawned += 1;

@@ -15,7 +15,6 @@ public class LightMovement : MonoBehaviour
     void Start()
     {
         myPositionAtStart = transform.position;
-
         origo = new Vector3(0f, 0f, 0f);
 
     }
@@ -34,9 +33,6 @@ public class LightMovement : MonoBehaviour
         */
         //Mathf.Asin(b / C);
         // 
-
-
-
     }
 
     private bool isInTrigger = false;
@@ -53,37 +49,14 @@ public class LightMovement : MonoBehaviour
             isInTrigger = true;
             StartCoroutine(AnotherLightSphereNear());
         }
-        
-        /*if (lightSphereNear)
-        {
-            LightSphereNear(true);
-        }
-        */
     }
-
-
-    /*
-    public void LightSphereNear(bool closeToLightSphere)
-    {
-        while (closeToLightSphere == true)
-        {
-        directionVector = (origo + myPositionAtStart);
-        targetDirection = directionVector.normalized;
-
-        transform.Translate(targetDirection * speed* Time.deltaTime, Space.World);
-        }
-
-    }
-    */
 
     public IEnumerator AnotherLightSphereNear()
     {
-
-
         while (isInTrigger)
         {
             // Move the object here
-        transform.Translate(speed * Time.deltaTime * targetDirection, Space.World);
+            transform.Translate(speed * Time.deltaTime * targetDirection, Space.World);
             yield return null;
         }
 
@@ -93,8 +66,7 @@ public class LightMovement : MonoBehaviour
     public void OnTriggerExit(Collider other)
     {
         LightMovement lightSphereNear = other.gameObject.GetComponentInParent<LightMovement>();
-
-        
+  
         if (lightSphereNear)
         {
             isInTrigger = false;
