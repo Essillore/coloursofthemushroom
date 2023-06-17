@@ -440,7 +440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6341408875949121089}
   - component: {fileID: 6341408875949121090}
-  - component: {fileID: 6341408875949121091}
+  - component: {fileID: 6120835649570116601}
   m_Layer: 2
   m_Name: Cannon
   m_TagString: Untagged
@@ -479,7 +479,7 @@ MonoBehaviour:
   lightBall: {fileID: 4289204767840059638, guid: 6e76f40591a44294589530520d239f35, type: 3}
   lightBallSpeed: 60000
   fireRate: 0.5
---- !u!114 &6341408875949121091
+--- !u!114 &6120835649570116601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseColliderLayerMask:
     serializedVersion: 2
-    m_Bits: 2049
+    m_Bits: 67584
   debugTransform: {fileID: 0}
   explosionEffect: {fileID: 1318318595812237431, guid: 8c765fca6e2c46d4c8b6c04f2d787404, type: 3}
 --- !u!1 &6341408876200957077

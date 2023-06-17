@@ -1333,6 +1333,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ColourCollecterMushroom
       objectReference: {fileID: 0}
+    - target: {fileID: 6120835649570116601, guid: 3828058d476f2924bb93b3034ea74060, type: 3}
+      propertyPath: debugTransform
+      value: 
+      objectReference: {fileID: 1445115025}
     - target: {fileID: 6341408875823465193, guid: 3828058d476f2924bb93b3034ea74060, type: 3}
       propertyPath: pauseScript
       value: 
