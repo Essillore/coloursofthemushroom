@@ -34,7 +34,7 @@ public class FootVisualiseHealth : MonoBehaviour
     {
         stateOfHealth = Mathf.CeilToInt(currentHealth / 20);
 
-        //If player health has crossed the treshold, change foot colour, by changing(material)
+        //If player health has crossed the treshold, change foot colour, by changing material
         if (stateOfHealth != lastStateOfHealth)
         {
             ChangeFootColour(stateOfHealth);
@@ -53,24 +53,19 @@ public class FootVisualiseHealth : MonoBehaviour
                 currentFootMaterial = footFullWhite100;
                 break;
             case 4:
-                print("Taken dmg");
                 currentFootMaterial = footDamaged80;
                 break;
             case 3:
-                print("Halfway-ish");
                 currentFootMaterial = footDamaged60;
                 break;
             case 2:
-                print("Not good");
                 currentFootMaterial = footDamaged40;
                 break;
             case 1:
-                print("Almost ded");
                 currentFootMaterial = footFullBlack20;
                 break;
             case 0:
                 print("dead");
-                //Possibly instantiate explosion?
                 break;
             default:
                 Debug.Log("Have you changed the logic or the hp-range?");
