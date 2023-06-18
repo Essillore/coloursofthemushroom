@@ -13,15 +13,13 @@ public class GlassBreaksSoundPlayer : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         glassSoundRandomiser = Random.Range(0, 5);
-        print(glassSoundRandomiser);
         whichSoundToPlay = glassBreaks[glassSoundRandomiser];
 
         OnLightShattered();
     }
 
     public void OnLightShattered()
-    {
-        
+    { 
         audioSource.PlayOneShot(whichSoundToPlay, 0.7F);
     }
 }

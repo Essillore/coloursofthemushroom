@@ -23,6 +23,7 @@ public class LightBall : MonoBehaviour
         //Insight piece
         InsightMovement insightPiece = collision.gameObject.GetComponent<InsightMovement>();
 
+        //LightSphere
         LightHealth littleLight = collision.gameObject.GetComponent<LightHealth>();
 
         //When touch asteroid, asteroid takes 100 dmg -> destroys -> explodes -> spawns light

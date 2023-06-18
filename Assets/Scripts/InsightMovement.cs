@@ -24,7 +24,6 @@ public class InsightMovement : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!freeze)
@@ -65,7 +64,6 @@ public class InsightMovement : MonoBehaviour
         timer.GetComponent<Timer>().InsightCollectedTime();
         Destroy(gameObject);    
         //play animation
-
     }
 
 }

@@ -16,7 +16,6 @@ public class MousePosition : MonoBehaviour
         Instance = this;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -27,8 +26,6 @@ public class MousePosition : MonoBehaviour
             {
                 if (raycastHit.transform.GetComponent<RedAsteroid>() | raycastHit.transform.GetComponent<AsteroidMovement>())
                 {
-                   // Instantiate(explosionEffect, raycastHit.transform.position, raycastHit.transform.rotation);
-                   // Destroy(raycastHit.transform.gameObject);
                     AsteroidHealth asteroidHealth = raycastHit.transform.GetComponent<AsteroidHealth>();
                     asteroidHealth.TakeDamage(100);
                 } else if (raycastHit.transform.GetComponent<InsightMovement>())

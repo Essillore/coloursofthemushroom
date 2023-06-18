@@ -10,11 +10,9 @@ public class AsteroidHealth : MonoBehaviour
     public GameObject prettyLight;
     public GameObject explosionEffect;
 
-    // Start is called before the first frame update
     void Start()
     {
         asteroidCurrentHealth = asteroidMaxHealth;
-
     }
 
     public void Health()
@@ -33,7 +31,6 @@ public class AsteroidHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         asteroidCurrentHealth -= amount;
-        //print("Took " + amount + "dmg at " + Time.time);
         Health();
 
     }

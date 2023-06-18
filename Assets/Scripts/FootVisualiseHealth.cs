@@ -49,7 +49,7 @@ public class FootVisualiseHealth : MonoBehaviour
         switch (stateOfHealth)
         {
             case 5:
-                print("Full Health");
+                //print("Full Health");
                 currentFootMaterial = footFullWhite100;
                 break;
             case 4:
@@ -65,7 +65,7 @@ public class FootVisualiseHealth : MonoBehaviour
                 currentFootMaterial = footFullBlack20;
                 break;
             case 0:
-                print("dead");
+                //print("dead");
                 break;
             default:
                 Debug.Log("Have you changed the logic or the hp-range?");

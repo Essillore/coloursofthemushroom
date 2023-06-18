@@ -13,13 +13,10 @@ public class CannonShooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-   //     myRB = GetComponentInParent<PlayerControllerPhysics>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
 
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
@@ -29,8 +26,6 @@ public class CannonShooting : MonoBehaviour
             projectile.GetComponent<Rigidbody>().AddForce(aimDir * lightBallSpeed);
             GameManager.gameManager.NumberOfShots();
         }
-
-
     }
 
 }
