@@ -50,7 +50,7 @@ public class InsightSpawner : MonoBehaviour
             GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "SphereWorld", GameManager.gameManager.HowManyAsteroidsDestroyed());
             GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, "AsteroidsDestroyed", GameManager.gameManager.HowManyAsteroidsDestroyed(), "Asteroid", "asteroidsDestroyed");
 
-            levelManager.ChangeLevel(4);
+            levelManager.ChangeLevel(3);
         }
     }
 }
