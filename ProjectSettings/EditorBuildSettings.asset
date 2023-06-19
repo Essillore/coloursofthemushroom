@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: 9635d3cbcfa2a05488037eac06ef24b3
+  - enabled: 1
+    path: Assets/Scenes/ExperimentalPhysicsMovement.unity
+    guid: 8a3777ddf09813f4d988d62fd4fbea83
   - enabled: 0
     path: Assets/Scenes/In_case_needed/NewGameMenu.unity
     guid: 583a3957a58723141881d1eabdbd160a
