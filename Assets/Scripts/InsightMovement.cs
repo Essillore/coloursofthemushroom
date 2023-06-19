@@ -14,13 +14,23 @@ public class InsightMovement : MonoBehaviour
     public GameObject playerHealth;
     public GameObject timer;
 
-    // Start is called before the first frame update
+    //audio
+    public AudioClip[] insightTeleportSounds;
+    AudioSource audioSource;
+
+    public int insightTeleportSoundRandomiser = 3;
+    public AudioClip whichSoundToPlay;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         playerHealth = GameObject.FindWithTag("Player");
         insightSpawner = GameObject.FindWithTag("InsightSpawner");
         timer = GameObject.FindWithTag("Timer");
+
+        audioSource = GetComponent<AudioSource>();
+        insightTeleportSoundRandomiser = Random.Range(0, 3);
+        whichSoundToPlay = insightTeleportSounds[insightTeleportSoundRandomiser];
 
     }
 
@@ -42,10 +52,12 @@ public class InsightMovement : MonoBehaviour
         }        
     }
 
+
     public void Teleport()
     {
         Vector3 position = new Vector3(Random.Range(-200f, 200f), Random.Range(-200f, 200f), Random.Range(-200f, 200f));
         transform.position = position;
+        audioSource.PlayOneShot(whichSoundToPlay, 0.7F);
     }
 
     public void OnTriggerEnter(Collider other)
