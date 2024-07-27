@@ -42,6 +42,8 @@ public class RedAsteroid : MonoBehaviour
             StartCoroutine(WaitToCheckWhereInsight());
         }
 
+
+
         //Unnecessarily complicated physics for asteroid movement,
         //in an attempt to understand better how physics work.
         //Asteroid rotates with physics (torque)
@@ -64,6 +66,8 @@ public class RedAsteroid : MonoBehaviour
         transform.position = orbitCenter + orbitDirection.normalized * radius;
 
     }
+
+
 
     private void OnCollisionEnter(Collision collision)
     {

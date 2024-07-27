@@ -56,8 +56,7 @@ public class InsightSpawner : MonoBehaviour
         asteroidSpawner.SpawnAsteroidsToInsight(insightCounter+1);
 
         //check if player won
-        WinCondition();
-       
+        WinCondition();    
     }  
 
     public void WinCondition()
